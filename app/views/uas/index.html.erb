@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+    <%if @uas.empty? %>
+      <div class="row">
+        <h1>No hay profesores añade uno, plis.</h1>
+        <%= link_to '+', new_ua_path, class: "add"  %>
+      </div>
+    <%end%>
+    <% @uas.each do |ua| %>
+      <div class="card">
+        <div class="title"><%= ua.nombre %></div>
+        <div class="sub-title">Con <%= ua.get_professors.count %> Profesores asociados</div>
+        <div class="actions">
+          <%= link_to '', edit_ua_path(ua), class: "far fa-edit" %>
+          <%= link_to '', ua, class: "far fa-trash-alt", method: :delete, data: { confirm: 'Seguro de borrar a '+ua.nombre+'?' } %>
+        </div>
+      </div>
+    <% end %>
+
+
+<br>
+
+<%= link_to '+', new_ua_path, class: "add fixed"  %>
+

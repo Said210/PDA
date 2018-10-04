@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-10 shadow-sm p-4 mb-5 bg-white rounded">
+      <form method="POST" action="/professors/<%=@p.id%>/impart">
+        <div class="form-group">
+          <h2 align="center"><%=link_to @p.name, professor_path(@p) %> imparte UA</h2>
+          <label>
+              Unidad de aprendizaje
+          </label>
+          <select class="form-control" name="uid">
+            <% for r in @uas do %>
+              <option value="<%= r.id %>"><%= r.nombre %></option>
+            <% end %> 
+          </select>
+          <br>
+          <label>Rol</label>
+           <select class="form-control" name="Titulo" name="title">
+            <% i = 0 %>
+            <% for r in @m.get_titles do %>
+                <option value="<%= i %>"><%= r %></option>
+                <% i += 1 %>
+            <% end %> 
+          </select>
+        </div>
+        <input type="submit">
+      </form>
+    </div>
+  </div>
+</div>

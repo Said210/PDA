@@ -1,0 +1,2 @@
+module UAsHelper
+end

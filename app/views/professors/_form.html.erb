@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-10 shadow-sm p-4 mb-5 bg-white rounded">
+      <h2 align="center"><%= (locals[:title].nil?) ? "" : locals[:title] %></h2>
+      <p>Los campos con * son obligatorios</p>
+      <%= form_for(@professor) do |f| %>
+        <% if @professor.errors.any? %>
+          <div id="errors"></div>
+          <div id="error_explanation">
+          <h2><%= pluralize(@professor.errors.count, "error") %> prohibited this professor from being saved:</h2>
+        
+              <ul>
+              <% @professor.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+        
+          <div class="field">
+            Nombre* <br>
+            <%= f.text_field :name, onkeyup: "validate('#professor_name', 'Nombre')" %>
+          </div>
+          <div class="field">
+            Primer apellido*
+            <%= f.text_field :lname %>
+          </div>
+          <div class="field">
+            Segundo apellido
+            <%= f.text_field :lname2 %>
+          </div>
+          <div class="field" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+            Numero de empleado
+            <%= f.text_field :worker %>
+          </div>
+          
+          <div class="field" >
+            email
+            <%= f.text_field :email %>
+          </div>
+          
+          <div class="field">
+            Teléfono
+            <%= f.text_field :phone %>
+          </div>
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        <% end %>
+
+    </div>
+    
+  </div>
+</div>
+
+
+<script>
+  var errors = [];
+  
+  function display_errors(){
+    var error = '<div class="alert alert-secondary" role="alert">';
+    for(var i = 0; i < errors.lenght; i++){
+      error += errors[i][1]
+    }
+    error += '</div>';
+  }
+  
+  function validate(id, tag){
+    if(empty(id, tag) || !string_only(id,tag)){
+      $(id).css("backgroundColor", "#e74c3c");
+      
+    }
+  }
+  
+  
+  function string_only(e,tag){
+    var str = /[a-zA-Z| |0-9|á|é|í|ó|ú|Á|É|Í|Ó|Ú|Ü|ï|ü|\.]+/ig
+    return str.test( $(e).val() )
+  }
+  
+  function empty(e,tag){
+    var empty =  $(e).val() == "";
+    return empty;
+  }
+</script>

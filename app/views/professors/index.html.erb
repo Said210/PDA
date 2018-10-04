@@ -1,0 +1,16 @@
+<br>
+<p id="notice"><%= notice %></p>
+  
+  <% @professors.each do |p| %>
+    <div class="card">
+      <div class="title"><%= p.name %> <%= p.lname %> <%= p.lname2 %></div>
+      <div class="sub-title">Imparte <%= p.get_uas.count %> UAs</div>
+      <div class="actions">
+        <%= link_to '', edit_professor_path(p), class: "far fa-edit" %>
+        <%= link_to '', p, class: "far fa-trash-alt", method: :delete, data: { confirm: 'Estas seguro de borrar?' } %>
+      </div>
+    </div>
+  <%end%>
+<br>
+
+<%= link_to '+', new_professor_path, class: "add fixed" %>

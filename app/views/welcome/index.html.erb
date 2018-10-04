@@ -1,0 +1,41 @@
+<div class="bg-1">
+    <%= image_tag "Phone.png", class: "welcome-phone" %>
+    <div class="welcome-title">
+        <h1>Solo intentamos hacer mas facil su día a día</h1>
+        <p>A nosotros tampoco nos pagan extra :(</p>
+    </div>
+
+</div>
+
+<style>
+    body, *{
+        box-sizing: border-box;
+        margin: 0px;
+    }
+    .content{
+        width: 100vw;
+        min-height: 100vh;
+        background-image: URL("images/svg_bg_1.svg");
+        background-size: 100vw auto;
+        background-position: -15vh right;
+        background-repeat: no-repeat;
+    }
+    .welcome-phone{
+        position: absolute;
+        width: 40vw;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 5vw;
+    }
+    .welcome-title{
+        position: absolute;
+        width: 45vw;
+        right: 5vw;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .welcome-title p, h1{
+        font-weight: bolder;
+        text-align: center;
+    }
+</style>

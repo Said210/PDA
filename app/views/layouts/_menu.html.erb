@@ -1,0 +1,20 @@
+<nav class="navbar navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="/">PDA</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <% if !user_signed_in? %>
+              <li><a class="nav-item nav-link active" href="/">Inicio</a></li>
+              <li><a class="nav-item nav-link" href="#">¿Por qué?</a></li>
+              <li><a class="nav-item nav-link" href="#">¿Cómo?</a></li>
+              <li><a class="nav-item nav-link disabled" href="/users/sign_in">Entrar</a></li>
+            <%else%>
+              <li><a class="nav-item nav-link" href="/professors">Profesores</a></li>
+              <li><a class="nav-item nav-link" href="/uas">UAs</a></li>
+            <%end%>
+        </ul>
+      </div>
+  </div>
+</nav>
